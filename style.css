@@ -26,13 +26,20 @@ nav {
     cursor: pointer;
 
 }
-
+.hero  a{
+    color: white;
+    text-decoration: none;
+}
+.hero a:visited{
+    text-decoration: none;
+}
 
 /* 子要素もホバーされたら色変わる */
 .logo:hover {
     transform: scale(1.1);
     transition: all 0.3s;
     color: lightseagreen;
+    
 }
 
 .logo:hover span {
@@ -42,6 +49,7 @@ nav {
 
 .logo h2:visited {
     color: white;
+    
 }
 
 .logo span:visited {
