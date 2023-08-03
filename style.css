@@ -80,6 +80,7 @@ nav ul li a:visited {
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s;
+    color: white;
 }
 
 .btn:hover {
