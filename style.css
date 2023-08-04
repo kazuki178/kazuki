@@ -363,11 +363,7 @@ footer p:nth-child(1) {
             justify-content: space-between;
             padding: 45px 4% 0 4%;
         }
-        /* nav */
-        nav ul li {
-            display: inline-block;
-            padding: 10px 15px
-        }
+
 
         .logo {
             font-size: 20px;
@@ -422,6 +418,36 @@ footer p:nth-child(1) {
             font-size: 50px;
             margin: 25px;
         }
+    }
 
+    @media (max-width:437px) {
+        nav ul li {
+            display: inline-block;
+            padding: 8px 14px
+        }
+        .hero ul {
+            font-size: 15px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 45px 4% 0 4%;
+        }
+/* 問い合わせ */
+.btn {
+    background-color: lightseagreen;
+    padding: 7px 2px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    color: white;
+    border-radius: 20px;
+}
+
+.logo{
+    display: none;
+}
+        
     }
 }
