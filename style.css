@@ -26,11 +26,13 @@ nav {
     cursor: pointer;
 
 }
-.hero  a{
+
+.hero a {
     color: white;
     text-decoration: none;
 }
-.hero a:visited{
+
+.hero a:visited {
     text-decoration: none;
 }
 
@@ -39,7 +41,7 @@ nav {
     transform: scale(1.1);
     transition: all 0.3s;
     color: lightseagreen;
-    
+
 }
 
 .logo:hover span {
@@ -49,7 +51,7 @@ nav {
 
 .logo h2:visited {
     color: white;
-    
+
 }
 
 .logo span:visited {
@@ -103,7 +105,7 @@ nav ul li a:visited {
 
 .content {
     padding-top: 230px;
-    
+
 }
 
 .content .body {
@@ -152,7 +154,7 @@ h4 {
 }
 
 .main {
-    
+
     display: flex;
     margin: 0 auto;
     align-items: center;
@@ -282,18 +284,19 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
 /* footerの一番目のpタグ指定 */
-footer p:nth-child(1){
+footer p:nth-child(1) {
     font-size: 30px;
     color: white;
     font-weight: bold;
 }
 
-.social{
+.social {
     display: flex;
 }
 
-.social a{
+.social a {
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -306,9 +309,11 @@ footer p:nth-child(1){
     color: white;
     transition: all 0.3s;
 }
-.social a:hover{
+
+.social a:hover {
     transform: scale(1.2);
 }
+
 .end {
     color: white;
     font-size: 16px;
@@ -317,33 +322,106 @@ footer p:nth-child(1){
 
 
 @media (max-width:1166px) {
-    
-h1 {
-    color: white;
-    margin: 20px 0 20px;
-    font-size: 55px;
-}
 
-h3 {
-    color: white;
-    font-size: 15px;
-    margin-bottom: 40px;
-}
+    h1 {
+        color: white;
+        margin: 20px 0 20px;
+        font-size: 55px;
+    }
 
-h4 {
-    color: white;
-    letter-spacing: 1px;
-}
+    h3 {
+        color: white;
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+
+    h4 {
+        color: white;
+        letter-spacing: 1px;
+    }
 
 
-.content .body img {
-    width: 40%;
-    height: 40%;
-    border-radius: 50%;
+    .content .body img {
+        width: 40%;
+        height: 40%;
+        border-radius: 50%;
 
-}
-.body{
-    margin: auto;
-}
+    }
 
+
+    @media (max-width:768px) {
+        nav ul li {
+            display: inline-block;
+            padding: 10px 10px
+        }
+        .hero ul {
+            font-size: 15px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 45px 4% 0 4%;
+        }
+        /* nav */
+        nav ul li {
+            display: inline-block;
+            padding: 10px 15px
+        }
+
+        .logo {
+            font-size: 20px;
+        }
+
+        /* 問い合わせ */
+        .btn {
+            background-color: lightseagreen;
+            padding: 7px 2px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .about-me {
+            display: none;
+        }
+        .about-text{
+            margin: auto 10px;
+        }
+
+        .pragraph p {
+            color: white;
+            font-size: 13px;
+            line-height: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card .button {
+            background-color: lightseagreen;
+            padding: 8px 9px;
+            color: white;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .card {
+            height: 390x;
+            width: 200px;
+            background-color: #191919;
+            padding: 20px 15px;
+            margin: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .card i {
+            color: lightseagreen;
+            font-size: 50px;
+            margin: 25px;
+        }
+
+    }
 }
