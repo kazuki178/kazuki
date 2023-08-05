@@ -418,9 +418,9 @@ footer p:nth-child(1) {
     }
 
     @media (max-width:437px) {
-        nav ul li {
+        .hero nav ul li {
             display: inline-block;
-            padding: 8px 14px
+            padding: 8px 10px
         }
         .hero ul {
             font-size: 15px;
