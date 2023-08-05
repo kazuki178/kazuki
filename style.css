@@ -448,6 +448,10 @@ footer p:nth-child(1) {
         color: white;
         border-radius: 20px;
     }
+    .btn:hover {
+        transform: scale(1);
+        border-radius: 20px;
+    }
 
     .logo {
         display: none;
@@ -479,6 +483,10 @@ footer p:nth-child(1) {
     font-weight: bold;
     transition: all 0.3s;
     color: white;
+    border-radius: 20px;
+}
+.btn:hover {
+    transform: scale(1);
     border-radius: 20px;
 }
 
