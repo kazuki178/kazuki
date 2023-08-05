@@ -68,7 +68,7 @@ span {
     padding: 10px 25px
 }
 
-.hero nav ul li a{
+.hero nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -344,93 +344,133 @@ footer p:nth-child(1) {
         border-radius: 50%;
 
     }
+}
 
-
-    @media (max-width:768px) {
-        nav ul li {
-            display: inline-block;
-            padding: 10px 10px
-        }
-        .hero ul {
-            font-size: 15px;
-        }
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 45px 4% 0 4%;
-        }
-
-
-        .logo {
-            font-size: 20px;
-        }
-
-        /* 問い合わせ */
-        .btn {
-            background-color: lightseagreen;
-            padding: 7px 2px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            color: white;
-        }
-
-        .about-me {
-            display: none;
-        }
-        .about-text{
-            margin: auto 10px;
-        }
-
-        .pragraph p {
-            color: white;
-            font-size: 13px;
-            line-height: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .card .button {
-            background-color: lightseagreen;
-            padding: 8px 9px;
-            color: white;
-            font-weight: bold;
-            border-radius: 30px;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-        .card {
-            height: 390x;
-            width: 200px;
-            background-color: #191919;
-            padding: 20px 15px;
-            margin: 20px;
-            border-radius: 20px;
-            overflow: hidden;
-            text-align: center;
-        }
-        
-        .card i {
-            color: lightseagreen;
-            font-size: 50px;
-            margin: 25px;
-        }
+@media (max-width:768px) {
+    nav ul li {
+        display: inline-block;
+        padding: 10px 10px
     }
 
-    @media (max-width:437px) {
-        .hero nav ul li {
-            display: inline-block;
-            padding: 8px 10px
-        }
-        .hero ul {
-            font-size: 15px;
-        }
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 45px 4% 0 4%;
-        }
+    .hero ul {
+        font-size: 15px;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 4% 0 4%;
+    }
+
+
+    .logo {
+        font-size: 20px;
+    }
+
+    /* 問い合わせ */
+    .btn {
+        background-color: lightseagreen;
+        padding: 7px 2px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        color: white;
+    }
+
+    .about-me {
+        display: none;
+    }
+
+    .about-text {
+        margin: auto 10px;
+    }
+
+    .pragraph p {
+        color: white;
+        font-size: 13px;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card .button {
+        background-color: lightseagreen;
+        padding: 8px 9px;
+        color: white;
+        font-weight: bold;
+        border-radius: 30px;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+
+    .card {
+        height: 390x;
+        width: 200px;
+        background-color: #191919;
+        padding: 20px 15px;
+        margin: 20px;
+        border-radius: 20px;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .card i {
+        color: lightseagreen;
+        font-size: 50px;
+        margin: 25px;
+    }
+}
+
+@media (max-width:437px) {
+    .hero nav ul li {
+        display: inline-block;
+        padding: 8px 17px
+    }
+
+    .hero ul {
+        font-size: 15px;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 2% 0 4%;
+    }
+
+    /* 問い合わせ */
+    .btn {
+        background-color: lightseagreen;
+        padding: 7px 2px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        color: white;
+        border-radius: 20px;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+
+@media (max-width:378px) {
+    .hero nav ul li {
+        display: inline-block;
+        padding: 8px 13px
+    }
+
+    .hero ul {
+        font-size: 15px;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 2% 0 4%;
+    }
+
 /* 問い合わせ */
 .btn {
     background-color: lightseagreen;
@@ -442,9 +482,10 @@ footer p:nth-child(1) {
     border-radius: 20px;
 }
 
-.logo{
+.logo {
     display: none;
 }
-        
-    }
+
+
+
 }
