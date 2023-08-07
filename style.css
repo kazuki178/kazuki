@@ -113,9 +113,9 @@ span {
 
 }
 
-.content .body img {
-    width: 400px;
-    height: 400px;
+.content .body .mepng {
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
 
 }
@@ -338,7 +338,7 @@ footer p:nth-child(1) {
     }
 
 
-    .content .body img {
+    .content .body .mepng {
         width: 40%;
         height: 40%;
         border-radius: 50%;
@@ -421,7 +421,7 @@ footer p:nth-child(1) {
     }
 }
 
-@media (max-width:437px) {
+@media (max-width:544px) {
     .hero nav ul li {
         display: inline-block;
         padding: 8px 17px
@@ -458,10 +458,10 @@ footer p:nth-child(1) {
     }
 }
 
-@media (max-width:378px) {
+@media (max-width:406px) {
     .hero nav ul li {
         display: inline-block;
-        padding: 8px 13px
+        padding: 8px 9px
     }
 
     .hero ul {
@@ -472,7 +472,7 @@ footer p:nth-child(1) {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 45px 2% 0 4%;
+        padding: 45px 2% 0 2%;
     }
 
 /* 問い合わせ */
