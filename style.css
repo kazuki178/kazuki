@@ -451,7 +451,7 @@ footer p:nth-child(1) {
     }
 
     .card {
-        height: 390x;
+        height: 390px;
         width: 200px;
         background-color: #191919;
         padding: 20px 15px;
@@ -488,9 +488,6 @@ footer p:nth-child(1) {
     }
 
 
-    .logo {
-        font-size: 20px;
-    }
 
     /* 問い合わせ */
     .btn {
@@ -560,7 +557,7 @@ footer p:nth-child(1) {
 
     }
 
-    nav {
+    .hero nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
