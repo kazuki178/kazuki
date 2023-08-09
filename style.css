@@ -22,7 +22,7 @@
 .loading.hide {
     opacity: 0;
     pointer-events: none;
-    transition: opacity 500ms;
+    transition: opacity 850ms;
 }
 
 .loading .circle {
