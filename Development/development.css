@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+    font-family: 'Merriweather', serif;
+    font-family: 'Shippori Mincho', serif;
 }
 
 
@@ -106,6 +109,10 @@ span {
 }
 
 /* nav */
+.hero nav ul {
+    font-size: 20px;
+}
+
 .hero nav ul li {
     display: inline-block;
     padding: 10px 25px
@@ -408,18 +415,15 @@ footer p:nth-child(1) {
 @media (max-width:768px) {
     nav ul li {
         display: inline-block;
-        padding: 10px 10px
+        padding: 7px 7px;
+        font-size: 18px;
     }
 
-    .hero ul {
-        font-size: 15px;
-    }
-
-    nav {
+    .hero nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 45px 4% 0 4%;
+        padding: 45px 2% 0 2%;
     }
 
 
@@ -427,14 +431,15 @@ footer p:nth-child(1) {
         font-size: 20px;
     }
 
+
     /* 問い合わせ */
     .btn {
         background-color: lightseagreen;
-        padding: 7px 2px;
         text-decoration: none;
         font-weight: bold;
         transition: all 0.3s;
         color: white;
+        margin-right: 1%;
     }
 
     .about-me {
@@ -463,16 +468,6 @@ footer p:nth-child(1) {
     }
 
 
-    .card {
-        height: auto;
-        width: 80%;
-        background-color: #191919;
-        padding: 20px 35px;
-        margin: 75px auto 20px auto;
-        border-radius: 20px;
-        overflow: hidden;
-        text-align: center;
-    }
 
     .card i {
         color: lightseagreen;
@@ -481,21 +476,86 @@ footer p:nth-child(1) {
     }
 }
 
+
+@media (max-width:620px) {
+    nav ul li {
+        display: inline-block;
+        padding: 7px 7px;
+        font-size: 18px;
+    }
+
+    .hero nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 2% 0 2%;
+    }
+
+
+    .logo {
+        display: none;
+    }
+
+
+    /* 問い合わせ */
+    .btn {
+        background-color: lightseagreen;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        color: white;
+        margin-right: 1%;
+    }
+
+    .about-me {
+        display: none;
+    }
+
+    .about-text {
+        margin: auto 10px;
+    }
+
+    .pragraph p {
+        color: white;
+        font-size: 13px;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card .button {
+        background-color: lightseagreen;
+        padding: 8px 9px;
+        color: white;
+        font-weight: bold;
+        border-radius: 30px;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+
+
+
+    .card i {
+        color: lightseagreen;
+        font-size: 50px;
+        margin: 25px;
+    }
+}
+
+
+
 @media (max-width:544px) {
     .hero nav ul li {
         display: inline-block;
-        padding: 8px 17px
-    }
+        padding: 7px 7px;
+        font-size: 17px;
 
-    .hero ul {
-        font-size: 15px;
     }
 
     nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 45px 2% 0 4%;
+        padding: 45px 2% 2%;
     }
 
     /* 問い合わせ */
@@ -519,15 +579,50 @@ footer p:nth-child(1) {
     }
 }
 
-@media (max-width:406px) {
+@media (max-width:416px) {
     .hero nav ul li {
         display: inline-block;
-        padding: 8px 9px
+        padding: 8px 7px;
+        font-size: 19px;
     }
 
-    .hero ul {
-        font-size: 15px;
+
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 2% 0 2%;
     }
+
+    /* 問い合わせ */
+    .btn {
+        background-color: lightseagreen;
+        padding: 7px 2px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        color: white;
+        border-radius: 20px;
+    }
+
+    .btn:hover {
+        transform: scale(1);
+        border-radius: 20px;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+
+@media (max-width:376px) {
+    .hero nav ul li {
+        padding: 6px 6px;
+        font-size: 18px;
+    }
+
+
 
     nav {
         display: flex;
