@@ -3,40 +3,49 @@
     padding: 0;
     box-sizing: border-box;
 
-
+    font-family: 'Merriweather', serif;
+    font-family: 'Shippori Mincho', serif;
 }
 
 
 /* ローディング */
 .loading {
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  background: #000000;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #000000;
 }
+
 .loading.hide {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 500ms;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 500ms;
 }
+
 .loading .circle {
-  display: block;
-  position: relative;
-  top: calc( 50% - 20px );
-  width: 70px;
-  height: 70px;
-  margin: 0 auto;
-  border: 8px solid #252525;
-  border-top: 9px solid lightseagreen;
-  border-radius: 50%;
-  animation: loading 700ms linear 0ms infinite normal both;
+    display: block;
+    position: relative;
+    top: calc(50% - 20px);
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    border: 8px solid #252525;
+    border-top: 9px solid lightseagreen;
+    border-radius: 50%;
+    animation: loading 700ms linear 0ms infinite normal both;
 }
+
 @keyframes loading {
-  0% { transform: rotate( 0deg ); }
-  100% { transform: rotate( 360deg ); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -48,7 +57,7 @@
     background-color: #101010;
 }
 
-nav {
+.hero nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -99,6 +108,10 @@ span {
 }
 
 /* nav */
+.hero nav ul {
+    font-size: 20px;
+}
+
 .hero nav ul li {
     display: inline-block;
     padding: 10px 25px
@@ -385,18 +398,16 @@ footer p:nth-child(1) {
 @media (max-width:768px) {
     nav ul li {
         display: inline-block;
-        padding: 10px 10px
+        padding: 7px 7px;
+        font-size: 18px;
     }
 
-    .hero ul {
-        font-size: 15px;
-    }
 
-    nav {
+    .hero nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 45px 4% 0 4%;
+        padding: 45px 2% 0 2%;
     }
 
 
@@ -407,11 +418,11 @@ footer p:nth-child(1) {
     /* 問い合わせ */
     .btn {
         background-color: lightseagreen;
-        padding: 7px 2px;
         text-decoration: none;
         font-weight: bold;
         transition: all 0.3s;
         color: white;
+        margin-right: 1%;
     }
 
     .about-me {
@@ -457,21 +468,103 @@ footer p:nth-child(1) {
     }
 }
 
+
+
+
+@media (max-width:620px) {
+    nav ul li {
+        display: inline-block;
+        padding: 7px 7px;
+        font-size: 18px;
+    }
+
+
+
+    .hero nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 2% 0 2%;
+    }
+
+
+    .logo {
+        font-size: 20px;
+    }
+
+    /* 問い合わせ */
+    .btn {
+        background-color: lightseagreen;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        color: white;
+        margin-right: 1%;
+    }
+
+    .about-me {
+        display: none;
+    }
+
+    .about-text {
+        margin: auto 10px;
+    }
+
+    .pragraph p {
+        color: white;
+        font-size: 13px;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card .button {
+        background-color: lightseagreen;
+        padding: 8px 9px;
+        color: white;
+        font-weight: bold;
+        border-radius: 30px;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+
+    .card {
+        height: 390x;
+        width: 200px;
+        background-color: #191919;
+        padding: 20px 15px;
+        margin: 20px;
+        border-radius: 20px;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .card i {
+        color: lightseagreen;
+        font-size: 50px;
+        margin: 25px;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+
+
+
+
 @media (max-width:544px) {
     .hero nav ul li {
         display: inline-block;
-        padding: 8px 17px
-    }
+        padding: 7px 7px;
+        font-size: 17px;
 
-    .hero ul {
-        font-size: 15px;
     }
 
     nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 45px 2% 0 4%;
+        padding: 45px 2% 2%;
     }
 
     /* 問い合わせ */
@@ -484,6 +577,7 @@ footer p:nth-child(1) {
         color: white;
         border-radius: 20px;
     }
+
     .btn:hover {
         transform: scale(1);
         border-radius: 20px;
@@ -494,15 +588,14 @@ footer p:nth-child(1) {
     }
 }
 
-@media (max-width:406px) {
+@media (max-width:416px) {
     .hero nav ul li {
         display: inline-block;
-        padding: 8px 9px
+        padding: 8px 7px;
+        font-size: 19px;
     }
 
-    .hero ul {
-        font-size: 15px;
-    }
+
 
     nav {
         display: flex;
@@ -511,25 +604,61 @@ footer p:nth-child(1) {
         padding: 45px 2% 0 2%;
     }
 
-/* 問い合わせ */
-.btn {
-    background-color: lightseagreen;
-    padding: 7px 2px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s;
-    color: white;
-    border-radius: 20px;
-}
-.btn:hover {
-    transform: scale(1);
-    border-radius: 20px;
+    /* 問い合わせ */
+    .btn {
+        background-color: lightseagreen;
+        padding: 7px 2px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        color: white;
+        border-radius: 20px;
+    }
+
+    .btn:hover {
+        transform: scale(1);
+        border-radius: 20px;
+    }
+
+    .logo {
+        display: none;
+    }
 }
 
-.logo {
-    display: none;
-}
+@media (max-width:370px) {
+    .hero nav ul li {
+        display: inline-block;
+        padding: 6px 6px;
+        font-size: 18px;
+    }
 
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 2% 0 2%;
+    }
+
+    /* 問い合わせ */
+    .btn {
+        background-color: lightseagreen;
+        padding: 7px 2px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        color: white;
+        border-radius: 20px;
+    }
+
+    .btn:hover {
+        transform: scale(1);
+        border-radius: 20px;
+    }
+
+    .logo {
+        display: none;
+    }
 
 
 }
