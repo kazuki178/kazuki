@@ -14,17 +14,32 @@
 </head>
 
 <body>
+
+    <div class="loading">
+        <span class="circle"></span>
+    </div>
+
+    <script>
+        const loading = document.querySelector('.loading');
+
+        window.addEventListener('load', () => {
+            loading.classList.add('hide');
+        }, false);
+    </script>
+
     <!-- hero section -->
     <div class="hero">
         <nav>
-            <a href="index.html"><h2 class="logo">kazu<span>ki</span></h2></a>
+            <a href="index.html">
+                <h2 class="logo">kazu<span>ki</span></h2>
+            </a>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="/Development/Development.html">Develop</a></li>
                 <li><a href="index.html">Article</a></li>
             </ul>
             <a href="#contact" class="btn">お問い合わせ</a>
-            
+
         </nav>
 
         <div class="content">
@@ -58,7 +73,7 @@
 
 
 
-    
+
     <!-- portfolio info    -->
     <div class="portfolio">
         <div class="title">
@@ -70,7 +85,7 @@
                 <h5>Development</h5>
                 <div class="pragraph">
                     <p>portfolio
-                        </p>
+                    </p>
                     <p style="text-align: center;">
                         <a href="/Development/Development.html" class="button">もっと読む</a>
                     </p>
@@ -81,7 +96,7 @@
                 <h5>article</h5>
                 <div class="pragraph">
                     <p>技術に関する記事
-                        </p>
+                    </p>
                     <p style="text-align: center;">
                         <a href="#" class="button">もっと読む</a>
                     </p>
@@ -91,25 +106,28 @@
     </div>
 
 
-<!-- contact section -->
-<div class="contact">
-    <a  id="contact"></a>
-    <p>Contact</p>
-    <p style="font-size: 20px; margin-bottom: 0;">yahashi.kazuki5936▲gmail.com</p><br>
-    <p style="font-size: 15px;">※▲を＠に変換してください</p>
+    <!-- contact section -->
+    <div class="contact">
+        <a id="contact"></a>
+        <p>Contact</p>
+        <p style="font-size: 20px; margin-bottom: 0;">yahashi.kazuki5936▲gmail.com</p><br>
+        <p style="font-size: 15px;">※▲を＠に変換してください</p>
 
-</div>
+    </div>
 
-<!-- footersection -->
-<footer>
-    <p>Social</p>
-<div class="social">
-    <a href="https://github.com/kazuki178" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://qiita.com/kazuki_178" target="_blank"><i class="fa-solid fa-q"></i></a>
 
-</div>
-<p class="end">&copy;Kazuki0521</p>
-</footer>
+
+
+    <!-- footersection -->
+    <footer>
+        <p>Social</p>
+        <div class="social">
+            <a href="https://github.com/kazuki178" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://qiita.com/kazuki_178" target="_blank"><i class="fa-solid fa-q"></i></a>
+
+        </div>
+        <p class="end">&copy;Kazuki0521</p>
+    </footer>
 </body>
 
 </html>
