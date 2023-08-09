@@ -15,15 +15,20 @@
 
 <body>
 
-    <script>
-        const loading = document.querySelector('.loading');
 
-        window.addEventListener('load', () => {
-            loading.classList.add('hide');
-        }, false);
-    </script>
-
+        <!--load -->
+        <div class="loading">
+            <span class="circle"></span>
+        </div>
+        <script>
+            const loading = document.querySelector('.loading');
     
+            window.addEventListener('load', () => {
+                loading.classList.add('hide');
+            }, false);
+        </script>
+
+
     <!-- hero section -->
     <div class="hero">
         <nav>
