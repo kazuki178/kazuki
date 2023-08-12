@@ -23,7 +23,7 @@
 .loading.hide {
     opacity: 0;
     pointer-events: none;
-    transition: opacity 850ms;
+    transition: opacity 1150ms;
 }
 
 .loading .circle {
@@ -36,7 +36,7 @@
     border: 8px solid #252525;
     border-top: 9px solid lightseagreen;
     border-radius: 50%;
-    animation: loading 700ms linear 0ms infinite normal both;
+    animation: loading 200ms linear 0ms infinite normal both;
 }
 
 @keyframes loading {
