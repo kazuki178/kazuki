@@ -22,7 +22,7 @@
 .loading.hide {
     opacity: 0;
     pointer-events: none;
-    transition: opacity 1150ms;
+    transition: opacity 1350ms;
 }
 
 .loading .circle {
@@ -59,6 +59,7 @@
 
 .hero nav {
     display: flex;
+    
     align-items: center;
     justify-content: space-between;
     padding: 45px 8% 0 8%;
