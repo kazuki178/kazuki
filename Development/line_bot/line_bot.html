@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kajyuki|develop</title>
+    <link rel="stylesheet" href="line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Shippori+Mincho&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+
+    <!--load -->
+    <div class="loading">
+        <span class="circle"></span>
+    </div>
+    <script>
+        const loading = document.querySelector('.loading');
+
+        window.addEventListener('load', () => {
+            loading.classList.add('hide');
+        }, false);
+    </script>
+
+
+    <!-- hero section -->
+    <div class="hero">
+        <nav>
+            <a href="../../index.html">
+                <h2 class="logo">Kazu<span>ki</span></h2>
+            </a>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="Development.html">Develop</a></li>
+                <li><a href="Development.html">Article</a></li>
+            </ul>
+            <a href="#contact" class="btn">お問い合わせ</a>
+
+        </nav>
+
+    </div>
+    <!-- portfolio info    -->
+    <div class="portfolio">
+        <div class="title">
+            <h5>LINE APIと気象庁の天気データAPIを使用したbotプログラム</h5>
+        </div>
+        <div class="box">
+            <div class="card">
+                <h5>概要</h5>
+                <h6>LINE APIと天気予報APIを使用して毎朝指定時刻に天気予報を自動送信させる。</h6><br>
+
+                <h5>使用ツール</h5>
+                <h6>LINE API、天気予報API、Python、GitHub、GitHub Actions</h6><br>
+
+                <h5>流れ</h5>
+                <h6>LINE Developersで新規チャネル作成 → PythonでLINE APIと天気予報APIをimport<br><br>
+                    → 完成したプログラムをGitHub Actionsでデプロイ</h6>
+                <h5>完成例</h5>
+                <img src="img/linebot.png" style="">
+                <p>上記画像のように毎日7時にメッセージを送信するようになってます。</p>
+
+
+                <!-- リストを中央配置 -->
+                <nav style="margin:auto; width: fit-content;">
+                    <ul>
+                        <li><a href="https://developers.line.biz/ja/docs/messaging-api/" style="text-decoration: none;"
+                                target="_blank">
+                                <p style="color: cadetblue;">LINE API</p>
+                            </a></li>
+                        <li style="margin-bottom: 5px;"><a href="https://weather.tsukumijima.net/"
+                                style="text-decoration: none;" target="_blank">
+                                <p style="color: cadetblue; ">天気予報API</p>
+                            </a></li>
+                        <li style="margin-bottom: 5px;"><a href="https://docs.github.com/ja/actions"
+                                style="text-decoration: none;" target="_blank">
+                                <p style="color: cadetblue;">GitHub Actions</p>
+                            </a></li>
+                    </ul>
+                </nav>
+
+                <h5 style="margin-top: 50px;">手順</h5>
+                <p>まずはLINEの公式アカウントを準備します。</p>
+                <p><a href="https://developers.line.biz/ja/"
+                        style="text-decoration: none; color: cadetblue;">公式アカウント作成ページ</a></p>
+                <p style="margin: 45px auto 45px auto;    width: 90%; ">こちらのページからMessaging APIを選択しアカウントを作成してください。<br>
+                    作成後にPythonで使用するための下準備として
+                    !pip install line-bot-sdkでライブラリをインストールします。
+                    そして使用する情報は、作成した公式LINEからアクセストークンとIDを引っ張ってきます。
+                    ユーザーIDはLINEdeveloperの作成したアカウントのチャンネル基本設定の最下部に[あなたのユーザーID]があるのでそちらを使用します。
+                    同じ要領で次はMessaging API設定のところの最下部にチャンネルアクセストークンがあるのでそちらを使用し、jsonで保存します。
+
+                    ###以下は上記のIDとアクセストークンを保存するjsonファイル(例) 後からPythonでimportします。
+                    {CHANNEL_ACCESS_TOKEN:"ここにLINEのアクセストークンを挿入してください" USER_ID:"ユーザーIDを挿入してください"}</p>
+
+
+                    <iframe
+                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=material&wt=none&l=auto&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=true&fl=1&fm=Fira+Code&fs=11px&lh=147%25&si=false&es=2x&wm=false&code=import%2520json%2520%2523%25E3%2581%2593%25E3%2581%25A1%25E3%2582%2589%25E3%2581%25A7%25E5%2585%2588%25E3%2581%25BB%25E3%2581%25A9%25E4%25BD%259C%25E6%2588%2590%25E3%2581%2597%25E3%2581%259Fjson%25E3%2583%2595%25E3%2582%25A1%25E3%2582%25A4%25E3%2583%25AB%25E3%2582%2592import%25E3%2581%2597%25E3%2581%25A6%25E3%2581%2584%25E3%2581%25BE%25E3%2581%2599%25E3%2580%2582%250Afrom%2520linebot%2520import%2520LineBotApi%250Afrom%2520linebot.models%2520import%2520TextSendMessage%250Aimport%2520requests%250A%250A%2523-----------------------%25E5%25A4%25A9%25E6%25B0%2597%25E9%2596%25A2%25E4%25BF%2582%250Aurl%2520%253D%2520%2522https%253A%252F%252Fweather.tsukumijima.net%252Fapi%252Fforecast%252Fcity%252F120010%2522%2520%2520%250Apayload%2520%253D%2520%257B%2522city%2522%253A%2522120010%2522%257D%2520%2520%2523%25E3%2581%2593%25E3%2581%25AEcity%25E3%2581%25AE%25E6%258C%2587%25E5%25AE%259A%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2589%25E3%2581%25A0%25E3%2581%25A8%25E5%258D%2583%25E8%2591%2589%25E3%2582%2592%25E6%258C%2587%25E3%2581%2599%25E3%2580%2582%25E3%2581%259D%25E3%2581%25AE%25E4%25BB%2596%25E3%2581%25AE%25E7%259C%258C%25E3%2581%25AF%25E6%259C%2580%25E5%2588%259D%25E3%2581%25AB%25E8%25B2%25BC%25E3%2581%25A3%25E3%2581%259F%25E5%258F%2582%25E8%2580%2583%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25AF%25E3%2581%25AE%25E5%25A4%25A9%25E6%25B0%2597%25E4%25BA%2588%25E5%25A0%25B1API%25E3%2581%25AE%25E3%2582%25B5%25E3%2582%25A4%25E3%2583%2588%25E5%258F%2582%25E7%2585%25A7%25E3%2581%2597%25E3%2581%25A6%25E3%2581%258F%25E3%2581%25A0%25E3%2581%2595%25E3%2581%2584%25E3%2580%2582%250Atenki_data%2520%253D%2520requests.get%28url%252C%2520params%253Dpayload%29.json%28%29%2520%250A%250A%2523print%28tenki_data%29%2520%2520%2520%2520%2520%2520--%25E3%2581%2599%25E3%2581%25B9%25E3%2581%25A6%25E3%2581%25AE%25E3%2583%2587%25E3%2583%25BC%25E3%2582%25BF%25E3%2581%258Cjson%25E5%25BD%25A2%25E5%25BC%258F%25E3%2581%25A7%25E5%2587%25BA%25E5%258A%259B%25E3%2581%2595%25E3%2582%258C%25E3%2582%258B%250A%250A%250A%2523%25E3%2582%25BF%25E3%2582%25A4%25E3%2583%2588%25E3%2583%25AB%28%25E7%259C%258C%25E5%2590%258D%25E5%2587%25BA%25E5%258A%259B%29%250Aprint%28tenki_data%255B%2522title%2522%255D%29%250A%250A%2523%25E6%2597%25A5%25E4%25BB%2598%250Aday%253D%2522%25E6%2597%25A5%25E4%25BB%2598%2520%253A%2522%252Btenki_data%255B%2522forecasts%2522%255D%255B0%255D%255B%2522date%2522%255D%250A%250A%2523%25E5%25A4%25A9%25E6%25B0%2597%250Aweather%253D%2522%25E5%25A4%25A9%25E6%25B0%2597%2520%253A%2522%252Btenki_data%255B%2522forecasts%2522%255D%255B0%255D%255B%2522telop%2522%255D%250A%250A%2523%25E6%25B0%2597%25E6%25B8%25A9%250Acelsius%2520%253D%2520%2522%25E6%259C%2580%25E9%25AB%2598%25E6%25B0%2597%25E6%25B8%25A9%2520%253A%2522%252Btenki_data%255B%2522forecasts%2522%255D%255B0%255D%250A%255B%2522temperature%2522%255D%255B%2522max%2522%255D%255B%2522celsius%2522%255D%252B%2522%25C2%25B0%2522%250A%250A%2523%25E9%25A2%25A8%25E9%2580%259F%250Awave%253D%2522%25E9%25A2%25A8%25E9%2580%259F%2520%253A%2522%2520%2520%252B%2520%2520%2520tenki_data%255B%2522forecasts%2522%255D%255B0%255D%250A%255B%2522detail%2522%255D%255B%2522wave%2522%255D%250A%250A%2523%25E9%2599%258D%25E6%25B0%25B4%25E7%25A2%25BA%25E7%258E%2587%2520%280%25E6%2599%2582%7E06%25E6%2599%2582%25E3%2581%25AE%25E8%25A6%25B3%25E6%25B8%25AC%25E3%2583%2587%25E3%2583%25BC%25E3%2582%25BF%29%250Arain%253D%2522%25E9%2599%258D%25E6%25B0%25B4%25E7%25A2%25BA%25E7%258E%2587%2520%253A%2522%2520%2520%252B%2520%2520%2520tenki_data%255B%2522forecasts%2522%255D%255B0%255D%250A%255B%2522chanceOfRain%2522%255D%255B%2522T12_18%2522%255D%250A%250A%250A%2523%2523-------------------------lineAPI%25E9%2596%25A2%25E4%25BF%2582%250A%250Afile%2520%253D%2520open%28%27%25E4%25BD%259C%25E6%2588%2590%25E3%2581%2597%25E3%2581%259Fjson%25E3%2581%25AE%25E3%2583%2595%25E3%2582%25A1%25E3%2582%25A4%25E3%2583%25AB%25E5%2590%258D.json%27%252C%27r%27%29%2520%2520%2520%2523r%25E3%2581%25AFread%25E3%2583%25A2%25E3%2583%25BC%25E3%2583%2589%250Ainfo%2520%253D%2520json.load%28file%29%250A%250A%250A%250ACHANNEL_ACCESS_TOKEN%2520%253D%2520info%255B%27CHANNEL_ACCESS_TOKEN%27%255D%250Aline_bot_api%2520%253D%2520LineBotApi%28CHANNEL_ACCESS_TOKEN%29%250A%250A%250A%250Adef%2520main%28%29%253A%250A%2520%2520%2520%2520USER_ID%2520%253D%2520info%255B%27USER_ID%27%255D%250A%2520%2520%2520%2520messages%2520%253D%2520TextSendMessage%28text%2520%253D%2520%250A%2520%2520%2520%2520%2522%25E4%25BB%258A%25E6%2597%25A5%25E3%2581%25AE%25E5%25A4%25A9%25E6%25B0%2597%25E3%2582%2592%25E3%2581%258A%25E7%259F%25A5%25E3%2582%2589%25E3%2581%259B%25E3%2581%2597%25E3%2581%25BE%25E3%2581%2599%25E3%2580%2582%255Cn%2522%250A%2520%2520%2520%2520%252B%2520day%2520%252B%2522%255Cn%2522%252B%2520weather%252B%2520%2522%255Cn%2522%252Bcelsius%252B%2522%255Cn%2522%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%252B%2520wave%2520%252B%2522%255Cn%2522%252B%2520rain%250A%29%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%2523line_bot_api.push_message%28USER_ID%252Cmessages%2520%253D%2520messages%29%2520%2520%25E8%2587%25AA%25E5%2588%2586%25E3%2581%25AE%25E3%2581%25BF%25E3%2581%25AB%25E9%2580%2581%25E3%2582%258B%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%2523%25E5%2585%25A8%25E5%2593%25A1%25E3%2581%25AB%25E9%2580%2581%25E3%2582%258B%25E3%2583%2596%25E3%2583%25AD%25E3%2583%25BC%25E3%2583%2589%25E3%2582%25AD%25E3%2583%25A3%25E3%2582%25B9%25E3%2583%2588%25E3%2583%2586%25E3%2582%25B9%25E3%2583%2588%250A%2520%2520%2520%2520line_bot_api.broadcast%28messages%2520%253D%2520messages%29%250A%2520%2520%2520%2520%250Aif%2520__name__%2520%253D%253D%2520%2522__main__%2522%253A%250A%2520%2520%2520%2520main%28%29%2520%250A"
+                    style="width: 100%; height: 757px; border:0; transform: scale(1); overflow:hidden;"
+                    sandbox="allow-scripts allow-same-origin">
+                    </iframe>
+
+
+                <h5 style="margin-top: 70px;">次にGitHub Actionsでデプロイします。</h5>
+                <p style="margin: 45px auto 45px auto;    width: 90%; ">ますはGitHubでリポジトリを作成してください。
+                    その後、そのリポジトリにaddしてcommitしてpushしてください。
+                    そうしたらGitHubからActionsを選択して、simple workflowを選択してymlファイルを作成します。
+                    ymlファイルはこちらをコピーして使えます。
+
+                    こちらのgithub上のymlファイルは午前の7時に実行されるため以下の変更を加えると即時実行がおこなわれます。</p>
+
+                <iframe
+                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=material&wt=none&l=yaml&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=true&fl=1&fm=Fira+Code&fs=14px&lh=152%25&si=false&es=2x&wm=false&code=sample.yml%250A%2523%2520%25E3%2583%25AF%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%2595%25E3%2583%25AD%25E3%2583%25BC%25E5%2590%258D%250Aname%253A%2520test_chatbot%250A%250A%2523%2520%25E7%2599%25BA%25E7%2581%25AB%25E3%2582%25BF%25E3%2582%25A4%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0%250A%2523%2520%25E6%2597%25A5%25E6%259C%25AC%25E6%2599%2582%25E5%2588%25BB%25E3%2581%25AE%25E6%259C%259D7%25E6%2599%2582%25E3%2581%25AB%25E5%25AE%259A%25E6%259C%259F%25E5%2587%25A6%25E7%2590%2586%28%25E5%2588%2586%2520%25E6%2599%2582%2520%25E6%2597%25A5%2520%25E6%259C%2588%2520%25E6%259B%259C%25E6%2597%25A5%29%250A%2523%2520UTC%2520%25E3%2581%25AE%252002%253A00%2520%25E3%2581%25AF%2520JST%2520%25E3%2581%25A0%25E3%2581%25A8%252011%253A00%2520%25E3%2580%2582%250A%2523%2520%25E6%259B%259C%25E6%2597%25A5%25E6%258C%2587%25E5%25AE%259A%25E3%2581%25AB%25E3%2581%25AF%2520%255B0%252C%25206%255D%2520%25E3%2581%25AE%25E6%2595%25B4%25E6%2595%25B0%25E3%2582%2592%25E4%25BD%25BF%25E3%2581%2584%25E3%2581%25BE%25E3%2581%2599%25E3%2580%2582%25200%2520%25E3%2581%258C%25E6%2597%25A5%25E6%259B%259C%25E6%2597%25A5%25E3%2580%2581%25206%2520%25E3%2581%258C%25E5%259C%259F%25E6%259B%259C%25E6%2597%25A5%25E3%2581%25A7%25E3%2581%2599%25E3%2580%2582%250A%2523%2520%25E5%25AE%259F%25E3%2581%25AFgithub%2520actions%25E3%2581%25AEcron%25E3%2581%25AE%25E6%2599%2582%25E5%2588%25BB%25E3%2581%25AFUTC%25E3%2581%25AA%25E3%2581%25AE%25E3%2581%25A7%25E3%2580%2581%250A%2523%25E6%2597%25A5%25E6%259C%25AC%25E6%2599%2582%25E9%2596%2593%25E3%2581%25AB%25E5%2590%2588%25E3%2582%258F%25E3%2581%259B%25E3%2582%258B%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AB%25E6%2597%25A5%25E6%259C%25AC%25E6%2599%2582%25E5%2588%25BB%25E3%2581%258B%25E3%2582%25899%25E6%2599%2582%25E9%2596%2593%25E3%2583%259E%25E3%2582%25A4%25E3%2583%258A%25E3%2582%25B9%25E3%2581%25A7%25E8%25A8%25AD%25E5%25AE%259A%25E3%2581%2599%25E3%2582%258B%25E5%25BF%2585%25E8%25A6%2581%25E3%2581%258C%25E3%2581%2582%25E3%2582%258A%25E3%2581%25BE%25E3%2581%2599%25E3%2580%2582%250Aon%253A%250A%2520%2520schedule%253A%250A%2520%2520%2520%2520push%253A%2520%2523%25E3%2581%2593%25E3%2581%2593%25E3%2581%25AE%25E8%25A1%258C%25E3%2582%2592push%253A%25E3%2581%25AB%25E5%25A4%2589%25E6%259B%25B4%25E3%2581%2599%25E3%2582%258B%25E3%2581%2593%25E3%2581%25A8%25E3%2581%25A7%25E5%258D%25B3%25E6%2599%2582%25E5%25AE%259F%25E8%25A1%258C%25E3%2581%258C%25E3%2581%25A7%25E3%2581%258D%25E3%2581%25BE%25E3%2581%2599%25E3%2580%2582%250A%250A%2523%2523%2520--------%25E3%2581%2593%25E3%2581%2593%25E3%2581%258B%25E3%2582%2589%25E5%2585%2588%25E3%2581%25AE%25E8%25A1%258C%25E3%2581%25AF%25E5%25A4%2589%25E6%259B%25B4%25E3%2581%25AA%25E3%2581%2597%25E3%2580%2582%250A"
+                    style="width: 100%; height: 400px; border:0; transform: scale(1); overflow:hidden;"
+                    sandbox="allow-scripts allow-same-origin">
+                </iframe>
+
+                <p style="margin: 45px auto 45px auto;    width: 90%; ">そしてこのymlファイルをGitHubで go to
+                    fileさせるとgithubで実行され７時を指定していれば
+                    毎日7時に実行されるようになります。</p>
+
+                    <p><a href="https://github.com/kazuki178/Public_ChatBot" target="_blank"
+                        style="text-decoration: none; color: cadetblue;">一連ファイルを乗せたGitHub</a></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- contact section -->
+    <div class="contact">
+        <a id="contact"></a>
+        <p>Contact</p>
+        <p style="font-size: 20px; margin-bottom: 0;">yahashi.kazuki5936▲gmail.com</p><br>
+        <p style="font-size: 15px;">※▲を＠に変換してください</p>
+
+    </div>
+
+    <!-- footersection -->
+    <footer>
+        <p>Social</p>
+        <div class="social">
+            <a href="https://github.com/kazuki178" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://qiita.com/kazuki_178"><i class="fa-solid fa-q"></i></a>
+
+        </div>
+        <p class="end">&copy;Kazuki0521</p>
+    </footer>
+</body>
+
+</html>

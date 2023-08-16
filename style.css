@@ -164,8 +164,8 @@ span {
 }
 
 .content .body .mepng {
-    width: 350px;
-    height: 350px;
+    width: 330px;
+    height: 330px;
     border-radius: 50%;
 
 }
@@ -389,8 +389,8 @@ footer p:nth-child(1) {
 
 
     .content .body .mepng {
-        width: 40%;
-        height: 40%;
+        width: 25%;
+        height: 25%;
         border-radius: 50%;
 
     }
@@ -466,6 +466,12 @@ footer p:nth-child(1) {
         color: lightseagreen;
         font-size: 50px;
         margin: 25px;
+    }
+    .content .body .mepng {
+        width: 40%;
+        height: 40%;
+        border-radius: 50%;
+
     }
 }
 

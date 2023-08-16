@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
     font-family: 'Merriweather', serif;
     font-family: 'Shippori Mincho', serif;
 }
@@ -200,6 +200,16 @@ h6 {
     margin-bottom: 30px;
 }
 
+p {
+    color: white;
+    font-size: 16px;
+    line-height: 27px;
+
+
+    word-wrap: break-word;
+    margin: auto auto auto auto;
+}
+
 /* aboutから */
 .about {
     width: 100%;
@@ -270,6 +280,14 @@ h6 {
 
 }
 
+.title h5 {
+    color: white;
+    font-size: 25px;
+    margin: 30px auto;
+    text-align: center;
+
+}
+
 .title a {
     text-decoration: none;
 }
@@ -283,10 +301,10 @@ h6 {
 
 .card {
     height: auto;
-    width: 80%;
+    width: 95%;
     background-color: #191919;
-    padding: 20px 35px;
-    margin: 75px auto 20px auto;
+    padding: 10px 25px;
+    margin: 75px auto 90px auto;
     border-radius: 20px;
     overflow: hidden;
     text-align: center;
@@ -300,12 +318,7 @@ h6 {
 
 
 
-.pragraph p {
-    color: white;
-    font-size: 16px;
-    line-height: 25px;
-    margin-bottom: 30px;
-}
+
 
 .card .button {
     background-color: lightseagreen;
@@ -417,6 +430,7 @@ footer p:nth-child(1) {
 
     }
 }
+
 
 @media (max-width:768px) {
     nav ul li {
