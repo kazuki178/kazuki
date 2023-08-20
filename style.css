@@ -59,7 +59,8 @@
 
 .hero nav {
     display: flex;
-    
+    position: fixed;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     padding: 45px 8% 0 8%;
