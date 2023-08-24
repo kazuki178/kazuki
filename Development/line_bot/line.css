@@ -57,14 +57,20 @@
     background-color: #101010;
 }
 
+
+
 nav {
     display: flex;
-    position: fixed;
-    z-index: 5;
+
     width: 100%;
     align-items: center;
     justify-content: space-between;
     padding: 45px 8% 0 8%;
+}
+
+.top_nav{
+    position: fixed;
+    z-index: 5;
 }
 
 .logo {
@@ -404,6 +410,24 @@ footer p:nth-child(1) {
     font-size: 16px;
     margin-top: 20px;
 }
+
+
+
+/*LINEのアイコンsize*/
+.line_add {
+    height: 40px;
+    width: 130px;
+    margin-top: 13px;
+    margin-bottom: 35px;
+}
+
+.line_add:hover {
+    transform: scale(1.2) rotate(0deg);
+    transition-duration: 0.5s;
+}
+
+
+
 
 
 @media (max-width:1166px) {
