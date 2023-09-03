@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kajyuki|develop</title>
+    <link rel="stylesheet" href="forword.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Shippori+Mincho&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+
+    <!--load -->
+    <div class="loading">
+        <span class="circle"></span>
+    </div>
+    <script>
+        const loading = document.querySelector('.loading');
+
+        window.addEventListener('load', () => {
+            loading.classList.add('hide');
+        }, false);
+    </script>
+
+
+    <!-- hero section -->
+    <div class="hero">
+        <nav class="top_nav">
+            <a href="../../index.html">
+                <h2 class="logo">Kazu<span>ki</span></h2>
+            </a>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../Development.html">Develop</a></li>
+                <li><a href="Development.html">Article</a></li>
+            </ul>
+            <a href="#contact" class="btn">お問い合わせ</a>
+
+        </nav>
+
+    </div>
+    <!-- portfolio info    -->
+    <div class="portfolio">
+        <div class="title">
+            <h5>Spring Frameworkを使用したWEBアプリ開発<br>ForWord</h5>
+        </div>
+        <div class="box">
+            <div class="card">
+                <h5>概要</h5>
+                <h6>難易度別にラベル管理し、問題の単語を管理しランダムに出題させる。</h6><br>
+
+                <h5>使用ツール</h5>
+                <h6>Java、Spring Framework、PostgreSQL</h6><br>
+
+                <h5>機能</h5>
+                <h6>単語の新規登録、単語新規追加、単語削除、難易度(赤、黄、緑、未設定)出題</h6><br>
+                <h5>動作例</h5>
+                <p>[ここを動画にする] 未作成</p>
+                <!-- <img src="img/linebot.png" style="margin: auto; width: 300px;"> -->
+
+
+                
+
+                <h5 style="margin-top: 200px;">Spring MVCの全体像</h5>
+                <img src="img/mvc.png" style="margin: auto; max-width: 900px; width: 80%;">
+
+                <h5 style="margin-top: 150px;">レイヤ別コンポーネント</h5>
+                <img src="img/layer.png" style="margin: auto; max-width: 900px; width: 80%;">
+
+
+                
+                <p style="margin: 65px auto 35px auto;    width: 90%; ">前回出題した単語を出題させない処理<br>
+                    PostMappingで引数から前回出題した単語のIDを受け取り、
+                    次に出す出題単語をランダムで取得、その単語をInteger型で比較を100回行い<br>
+                    前回と違う単語が一度も取り出されない時に出題単語なしと判定。
+                    </p>
+
+
+                    <iframe
+                    src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=seti&wt=none&l=text%2Fx-java&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=true&fl=1&fm=Hack&fs=12px&lh=133%25&si=false&es=2x&wm=false&code=%252F%252F%2520%25E7%25B7%2591%25E8%2589%25B2%25E5%2595%258F%25E9%25A1%258C%25E3%2581%25AE%25E5%2587%25BA%25E9%25A1%258C%250A%2509%252F*%25E5%258D%2598%25E8%25AA%259E%25E3%2581%25A7%25E5%25AD%25A6%25E7%25BF%2592%25E6%25A9%259F%25E8%2583%25BD*%252F%250A%2509%2540PostMapping%28%2522%252FplayRed%2522%29%250A%2509public%2520String%2520showQuizRed%28%2540RequestParam%28name%2520%253D%2520%2522BeforeId%2522%252C%2520required%2520%253D%2520false%29%2520Integer%2520BeforeId%252C%2520QuizForm%2520quizForm%252C%250A%2509%2509%2509QuizForm%2520quizFormSelect1%252C%2520QuizForm%2520quizFormSelect2%252C%2520Model%2520model%29%2520%257B%250A%2509%2509%252F%252F%2509%2509%252F%252Fquiz%25E3%2582%2592%25E5%258F%2596%25E5%25BE%2597%25EF%25BC%2588optional%25E3%2581%25A7%25E3%2583%25A9%25E3%2583%2583%25E3%2583%2597%25EF%25BC%2589%25E5%2595%258F%25E9%25A1%258C%250A%250A%2509%2509Integer%2520IntegerBeforeId%2520%253D%25200%253B%250A%2509%2509Optional%253CQuiz%253E%2520quizOpt%2520%253D%2520service.selectOneRedRandomQuiz%28%29%253B%250A%250A%2509%2509String%2520rnd_1%2520%253D%2520null%253B%250A%2509%2509String%2520rnd_2%2520%253D%2520null%253B%250A%2509%2509String%2520rnd_3%2520%253D%2520null%253B%250A%2509%2509String%2520rnd_4%2520%253D%2520null%253B%250A%250A%2509%2509int%2520counter%2520%253D%25200%253B%250A%2509%2509%252F%252F%25E5%2580%25A4%25E3%2581%258C%25E5%2585%25A5%25E3%2581%25A3%25E3%2581%25A6%25E3%2582%258B%25E3%2581%258B%25E3%2581%25AE%25E5%2588%25A4%25E5%25AE%259A%250A%2509%2509if%2520%28quizOpt.isPresent%28%29%29%2520%257B%250A%250A%2509%2509%2509%252F%252Fquizform%25E3%2581%25B8%25E3%2581%25AE%25E8%25A9%25B0%25E3%2582%2581%25E3%2581%25AA%25E3%2581%258A%25E3%2581%2597%250A%2509%2509%2509Optional%253CQuizForm%253E%2520quizFormOpt%2520%253D%2520quizOpt.map%28t%2520-%253E%2520makeQuizForm%28t%29%29%253B%250A%2509%2509%2509quizForm%2520%253D%2520quizFormOpt.get%28%29%253B%250A%250A%2509%2509%2509%252F%252F%2520%25E5%2589%258D%25E5%259B%259E%25E5%2587%25BA%25E9%25A1%258C%25E3%2581%2595%25E3%2582%258C%25E3%2581%259F%25E5%2595%258F%25E9%25A1%258C%25E3%2582%2592%25E9%2581%25BF%25E3%2581%2591%25E3%2582%258B%25E5%2587%25A6%25E7%2590%2586%250A%2509%2509%2509if%2520%28BeforeId%2520%21%253D%2520null%29%2520%257B%250A%2509%2509%2509%2509IntegerBeforeId%2520%253D%2520BeforeId%253B%250A%250A%2509%2509%2509%2509if%2520%28IntegerBeforeId%2520%253D%253D%2520quizForm.getId%28%29%29%2520%257B%250A%250A%2509%2509%2509%2509%2509while%2520%28quizForm.getId%28%29.equals%28IntegerBeforeId%29%29%2520%257B%250A%2509%2509%2509%2509%2509%2509quizOpt%2520%253D%2520service.selectOneRedRandomQuiz%28%29%253B%250A%2509%2509%2509%2509%2509%2509quizFormOpt%2520%253D%2520quizOpt.map%28t%2520-%253E%2520makeQuizForm%28t%29%29%253B%250A%2509%2509%2509%2509%2509%2509quizForm%2520%253D%2520quizFormOpt.get%28%29%253B%250A%2509%2509%2509%2509%2509%2509counter%252B%252B%253B%250A%2509%2509%2509%2509%2509%2509if%2520%28counter%2520%253D%253D%2520100%29%2520%257B%250A%2509%2509%2509%2509%2509%2509%2509break%253B%250A%2509%2509%2509%2509%2509%2509%257D%250A%2509%2509%2509%2509%2509%257D%250A%2509%2509%2509%2509%257D%250A%2509%2509%2509%257D%250A%250A%2509%2509%2509if%2520%28counter%2520%253D%253D%2520100%29%2520%257B%250A%2509%2509%2509%2509model.addAttribute%28%2522msg%2522%252C%2520%2522%25E5%2590%258C%25E3%2581%2598%25E8%2589%25B2%25E3%2581%25AE%25E5%2595%258F%25E9%25A1%258C%25E3%2581%258C%25E3%2581%2593%25E3%2582%258C%25E4%25BB%25A5%25E4%25B8%258A%25E5%25AD%2598%25E5%259C%25A8%25E3%2581%2597%25E3%2581%25BE%25E3%2581%259B%25E3%2582%2593%2522%29%253B%250A%2509%2509%2509%2509return%2520%2522playRed%2522%253B%250A%2509%2509%2509%257D%250A"
+                    style="width: 100%; height: 757px; border:0; transform: scale(1); overflow:hidden;   position: relative; z-index: 3;"
+                    sandbox="allow-scripts allow-same-origin">
+                    </iframe>
+
+
+
+                <p style="margin-top: 100px;"><a href="https://github.com/kazuki178/ForWord" target="_blank"
+                        style="text-decoration: none; color: cadetblue;" >一連ファイルを乗せたGitHub</a></p><br>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- contact section -->
+    <div class="contact">
+        <a id="contact"></a>
+        <p>Contact</p>
+        <p style="font-size: 20px; margin-bottom: 0;">yahashi.kazuki5936▲gmail.com</p><br>
+        <p style="font-size: 15px;">※▲を＠に変換してください</p>
+
+    </div>
+
+    <!-- footersection -->
+    <footer>
+        <p>Social</p>
+        <div class="social">
+            <a href="https://github.com/kazuki178" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://qiita.com/kazuki_178"><i class="fa-solid fa-q"></i></a>
+
+        </div>
+        <p class="end">&copy;Kazuki0521</p>
+    </footer>
+</body>
+
+</html>
