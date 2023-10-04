@@ -1,0 +1,704 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Merriweather', serif;
+    font-family: 'Shippori Mincho', serif;
+}
+
+
+
+/* ローディング */
+.loading {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #000000;
+}
+
+.loading.hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1350ms;
+}
+
+.loading .circle {
+    display: block;
+    position: relative;
+    top: calc(50% - 20px);
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    border: 8px solid #252525;
+    border-top: 9px solid lightseagreen;
+    border-radius: 50%;
+    animation: loading 200ms linear 0ms infinite normal both;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.hero {
+    height: 90px;
+    width: 100%;
+    background-color: #101010;
+}
+
+
+
+nav {
+    display: flex;
+
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 45px 8% 0 8%;
+}
+
+.top_nav{
+    position: fixed;
+    z-index: 5;
+}
+
+.logo {
+    color: white;
+    font-size: 35px;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+
+}
+
+.hero a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero a:visited {
+    text-decoration: none;
+}
+
+/* 子要素もホバーされたら色変わる */
+.logo:hover {
+    transform: scale(1.1);
+    transition: all 0.3s;
+    color: lightseagreen;
+
+}
+
+.logo:hover span {
+    color: white;
+}
+
+
+.logo h2:visited {
+    color: white;
+
+}
+
+.logo span:visited {
+    color: lightgreen;
+}
+
+span {
+    color: lightseagreen;
+}
+
+/* nav */
+.hero nav ul {
+    font-size: 20px;
+}
+
+.hero nav ul li {
+    display: inline-block;
+    padding: 10px 25px
+}
+
+.hero nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.hero nav ul li a:hover {
+    color: lightseagreen;
+}
+
+
+/* 問い合わせ */
+.btn {
+    background-color: lightseagreen;
+    padding: 10px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.2);
+    border-radius: 20px;
+}
+
+.btn:visited {
+    color: white;
+}
+
+
+.content {
+    padding-top: 230px;
+
+}
+
+.content .body {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.content .body .mepng {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+
+}
+
+h1 {
+    color: white;
+    margin: 20px 0 20px;
+    font-size: 75px;
+}
+
+
+h3 {
+    color: white;
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+h4 {
+    color: white;
+    letter-spacing: 2px;
+}
+
+h5 {
+    color: white;
+    font-size: 23px;
+    margin-bottom: 30px;
+}
+
+h6 {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+p {
+    color: white;
+    font-size: 16px;
+    line-height: 27px;
+
+
+    word-wrap: break-word;
+    margin: auto auto auto auto;
+}
+
+/* aboutから */
+.about {
+    width: 100%;
+    padding: 100px 0;
+    background-color: #191919;
+}
+
+.about-text {
+    width: 550px;
+
+}
+
+.main {
+
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.main img {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+}
+
+.about-text h2 {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.about-text h3 {
+    color: white;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.about-text h5 {
+    color: white;
+    letter-spacing: 1px;
+    font-size: 19px;
+    margin-bottom: 25px;
+}
+
+
+
+.about-text p {
+    color: white;
+    letter-spacing: 1px;
+    line-height: 28px;
+    margin-bottom: 45px;
+    font-size: 15px;
+}
+
+/* portfolio info */
+.portfolio {
+    background-color: #101010;
+    width: 100%;
+    padding: 100px 0 200px 0;
+}
+
+.title h2 {
+    color: white;
+    font-size: 60px;
+    margin: 30px auto;
+    text-align: center;
+
+}
+
+.title h5 {
+    color: white;
+    font-size: 25px;
+    margin: 30px auto;
+    text-align: center;
+
+}
+
+.title a {
+    text-decoration: none;
+}
+
+.box {
+    display: block;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card {
+    height: auto;
+    max-width: 1100px;
+    width: 80%;
+    background-color: #191919;
+    padding: 10px 25px;
+    margin: 75px auto 90px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card i {
+    color: lightseagreen;
+    font-size: 50px;
+    margin: 25px;
+}
+
+
+
+
+
+.card .button {
+    background-color: lightseagreen;
+    padding: 13px 30px;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.card .button:hover {
+    background-color: transparent;
+    border: 2px solid green;
+    cursor: pointer;
+}
+
+/* contact */
+.contact {
+    width: 100%;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #191919;
+
+}
+
+.contact p {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+
+/* fotter */
+footer {
+    width: 100%;
+    height: 400px;
+    background-color: #101010;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* footerの一番目のpタグ指定 */
+footer p:nth-child(1) {
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+.social {
+    display: flex;
+}
+
+.social a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: lightseagreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin: 22px 10px;
+    color: white;
+    transition: all 0.3s;
+}
+
+.social a:hover {
+    transform: scale(1.2);
+}
+
+.end {
+    color: white;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+
+
+/*LINEのアイコンsize*/
+.line_add {
+    height: 40px;
+    width: 130px;
+    margin-top: 13px;
+    margin-bottom: 35px;
+}
+
+.line_add:hover {
+    transform: scale(1.2) rotate(0deg);
+    transition-duration: 0.5s;
+}
+
+
+
+
+
+@media (max-width:1166px) {
+
+    h1 {
+        color: white;
+        margin: 20px 0 20px;
+        font-size: 55px;
+    }
+
+    h3 {
+        color: white;
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+
+    h4 {
+        color: white;
+        letter-spacing: 1px;
+    }
+
+
+    .content .body .mepng {
+        width: 40%;
+        height: 40%;
+        border-radius: 50%;
+
+    }
+}
+
+
+@media (max-width:768px) {
+    nav ul li {
+        display: inline-block;
+        padding: 7px 7px;
+        font-size: 18px;
+    }
+
+    .hero nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 2% 0 2%;
+    }
+
+
+    .logo {
+        font-size: 20px;
+    }
+
+
+    /* 問い合わせ */
+    .btn {
+        background-color: lightseagreen;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        color: white;
+        margin-right: 1%;
+    }
+
+    .about-me {
+        display: none;
+    }
+
+    .about-text {
+        margin: auto 10px;
+    }
+
+    .pragraph p {
+        color: white;
+        font-size: 13px;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card .button {
+        background-color: lightseagreen;
+        padding: 8px 9px;
+        color: white;
+        font-weight: bold;
+        border-radius: 30px;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+
+
+
+    .card i {
+        color: lightseagreen;
+        font-size: 50px;
+        margin: 25px;
+    }
+}
+
+
+@media (max-width:620px) {
+    nav ul li {
+        display: inline-block;
+        padding: 7px 7px;
+        font-size: 18px;
+    }
+
+    .hero nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 2% 0 2%;
+    }
+
+
+    .logo {
+        display: none;
+    }
+
+
+    /* 問い合わせ */
+    .btn {
+        background-color: lightseagreen;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        color: white;
+        margin-right: 1%;
+    }
+
+    .about-me {
+        display: none;
+    }
+
+    .about-text {
+        margin: auto 10px;
+    }
+
+    .pragraph p {
+        color: white;
+        font-size: 13px;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card .button {
+        background-color: lightseagreen;
+        padding: 8px 9px;
+        color: white;
+        font-weight: bold;
+        border-radius: 30px;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+
+
+
+    .card i {
+        color: lightseagreen;
+        font-size: 50px;
+        margin: 25px;
+    }
+}
+
+
+
+@media (max-width:544px) {
+    .hero nav ul li {
+        display: inline-block;
+        padding: 7px 7px;
+        font-size: 17px;
+
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 2% 2%;
+    }
+
+    /* 問い合わせ */
+    .btn {
+        background-color: lightseagreen;
+        padding: 7px 2px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        color: white;
+        border-radius: 20px;
+    }
+
+    .btn:hover {
+        transform: scale(1);
+        border-radius: 20px;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+
+@media (max-width:416px) {
+    .hero nav ul li {
+        display: inline-block;
+        padding: 8px 7px;
+        font-size: 19px;
+    }
+
+
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 2% 0 2%;
+    }
+
+    /* 問い合わせ */
+    .btn {
+        background-color: lightseagreen;
+        padding: 7px 2px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        color: white;
+        border-radius: 20px;
+    }
+
+    .btn:hover {
+        transform: scale(1);
+        border-radius: 20px;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+
+@media (max-width:376px) {
+    .hero nav ul li {
+        padding: 6px 6px;
+        font-size: 18px;
+    }
+
+
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 45px 2% 0 2%;
+    }
+
+    /* 問い合わせ */
+    .btn {
+        background-color: lightseagreen;
+        padding: 7px 2px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+        color: white;
+        border-radius: 20px;
+    }
+
+    .btn:hover {
+        transform: scale(1);
+        border-radius: 20px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+
+
+}
