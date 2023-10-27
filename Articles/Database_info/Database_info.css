@@ -275,19 +275,20 @@ h6 {
 .title a {
     text-decoration: none;
 }
+
 .box {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
-    min-height: 400px;
+
 }
 
 .card {
-    height: 300px;
-    width: 365px;
+    height: auto;
+    width: 80%;
     background-color: #191919;
     padding: 20px 35px;
-    margin: 20px;
+    margin: 75px auto 20px auto;
     border-radius: 20px;
     overflow: hidden;
     text-align: center;
@@ -549,8 +550,8 @@ footer p:nth-child(1) {
 }
 
 
-/* ここでcardが縦並びになる */
-@media (max-width:611px) {
+
+@media (max-width:544px) {
     .hero nav ul li {
         display: inline-block;
         padding: 7px 7px;
@@ -583,29 +584,6 @@ footer p:nth-child(1) {
 
     .logo {
         display: none;
-    }
-    .box {
-        display: block;
-        align-items: center;
-        justify-content: center;
-        min-height: 400px;
-    }
-    
-    .card {
-        height: auto;
-        width: 90%;
-        background-color: #191919;
-        padding: 20px 35px;
-        margin: 75px auto auto auto;
-        border-radius: 20px;
-        overflow: hidden;
-        text-align: center;
-    }
-    
-    .card i {
-        color: lightseagreen;
-        font-size: 50px;
-        margin: 25px;
     }
 }
 
