@@ -427,7 +427,12 @@ footer p:nth-child(1) {
     transition-duration: 0.5s;
 }
 
+.grid{
+    border: solid;
+    color: lightseagreen;
+    padding: 1px;
 
+}
 
 
 

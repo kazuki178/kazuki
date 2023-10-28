@@ -74,79 +74,103 @@
                     たとえば、トレーニング内容を記録するデータベースがあるとします。<br>1つはトレーニング内容を記録するテーブル[training]<br>2つめはトレーニング内容を記録する科目テーブルとします[subject]
                 </p>
                 <img src="join_img/tables.png" style="margin-top: 20px; width: 40%; min-width:290px;">
-                <p style="margin-top: 30px;">これらのテーブルに、このSQLを実行するとこうなります。</p>
+                <p style="margin-top: 30px;">これらのテーブルに、このようなSQLを記述します。</p>
+
                 <iframe
-                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=SELECT%2520%25E6%2597%25A5%25E4%25BB%2598%252C%25E7%25A7%2591%25E7%259B%25AE%252C%25E3%2583%25A1%25E3%2583%25A2%250A%2509FROM%2520training%250A%2520%2520%2520%2520join%2520subject%2520%250A%2520%2520%2520%2520on%2520training.%2522%25E7%25A7%2591%25E7%259B%25AEID%2522%2520%253D%2520subject.%2522%25E7%25A7%2591%25E7%259B%25AEid%2522%253B"
+                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=seti&wt=none&l=sql&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=SELECT%2520%25E6%2597%25A5%25E4%25BB%2598%252C%25E7%25A7%2591%25E7%259B%25AE%252C%25E3%2583%25A1%25E3%2583%25A2%250A%2509FROM%2520training%250A%2520%2520%2520%2520JOIN%2520subject%2520%250A%2520%2520%2520%2520ON%2520training.%2522%25E7%25A7%2591%25E7%259B%25AEID%2522%2520%253D%2520subject.%2522%25E7%25A7%2591%25E7%259B%25AEid%2522%253B"
+                    style="width: 409px; height: 168px; border:0; transform: scale(1); overflow:hidden;"
+                    sandbox="allow-scripts allow-same-origin">
+                </iframe>
+                <p style="margin-top: 10px;">上記で注目してほしいのは、列に指定している列である[科目]はtrainingテーブルに存在しない列ということです。<br>
+                    理由はJOIN句によってsubjectテーブルの列が参照可能になっているからです。
+                </p>
+
+                <p style="margin-top: 10px; margin-bottom: 10px;">そして実際にJOINを行うとこのような動作になります。</p>
+                <img src="join_img/join_presentation.png" alt="" style="margin-top: 20px; width: 50%; min-width:590px;">
+                <p>ここからさらに指定した列や、WHEREで行の絞り込みが行われます。</p>
+
+                <div class="grid" style="margin-top: 40px; ">
+                    <h4 style="color: yellow;">結合とは？？</h4>
+                    <p>つまり結合とは、テーブルを単純に足し合わせるのではなく、ON句によって条件が満たされた行をつなげるもの。</p>
+                </div>
+
+                <p style="margin-top: 120px;">ここで上記の図について、trainingテーブルには本来、<u style="color: red;">科目ID = 10
+                        が存在するはず</u>ですが、結合時には消えてしまっています。
+                    このようにJOINするテーブル先に結合相手がいない場合や、FROM句で指定したテーブルの結合条件の列がNULLの場合は、結合結果から消滅してしまいます。
+                    上記画像だと、trainingテーブルの科目ID = 10 は結合する表のsubjectテーブルに存在しない(科目idに無い)ので実行結果から消滅して3行で出力されています。
+                </p>
+
+                <div class="grid" style="margin-top:20px; ">
+                    <h4 style="color: yellow;">JOIN句の特性(結合)</h4>
+                    <p>JOINするテーブル先に結合相手がいない場合や、左表のFROM句で指定したテーブルの結合条件の列がNULLの場合は、結合結果から消滅してしまいます<br>
+                        <u style="color: red;">このような結合を内部結合といいます。</u>
+                    </p>
+                </div>
+
+                <p style="margin-top: 120px;">ただ、左表であるFROM句の行が消滅してしまっては困ってしまうこともあるでしょう。<br>
+                    この時は、左外部結合を指示することで、左表のFROM句の列に対する結合相手がいなくても強制的に出力させることができます。
+                </p>
+                <p>このようにSQLに記述します。</p>
+                <iframe
+                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=seti&wt=none&l=sql&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=SELECT%2520%25E9%2581%25B8%25E6%258A%259E%25E5%2588%2597%2520FROM%2520%25E3%2583%2586%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25ABA%250ALEFT%2520JOIN%2520%25E3%2583%2586%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25ABB%250A%2509ON%2520%25E4%25B8%25A1%25E3%2583%2586%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%25E3%2581%25AE%25E7%25B5%2590%25E5%2590%2588%25E6%259D%25A1%25E4%25BB%25B6"
+                    style="width: 409px; height: 148px; border:0; transform: scale(1); overflow:hidden;">
+                </iframe>
+                <p>そして実際にLEFT JOINを行うとこのような動作になります。</p>
+                <iframe
+                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=seti&wt=none&l=sql&width=320&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=SELECT%2520*%2520FROM%2520training%2520%250ALEFT%2520JOIN%2520subject%2520%250AON%2520training.%2522%25E7%25A7%2591%25E7%259B%25AEID%2522%2520%253D%2520subject.%2522%25E7%25A7%2591%25E7%259B%25AEid%2522%253B"
+                    style="width: 409px; height: 148px; border:0; transform: scale(1); overflow:hidden;"
+                    sandbox="allow-scripts allow-same-origin">
+                </iframe><br>
+
+                <img src="join_img/join_left.png" alt="" style="margin-top: 20px; width: 50%; min-width:590px;">
+                <p>このようにJOINで指定したテーブル先に結合相手がいなくとも、処理を実行してON句で結合不可能な列に対してはnullが格納されます。</p>
+                <div class="grid" style="margin-top:20px; ">
+                    <h4 style="color: yellow;">LEFT JOIN句の特性(左外部結合)</h4>
+                    <p>JOINしたテーブル先に結合相手がいない場合や、FROM句で指定した左表のテーブルの結合条件の列がNULLの場合でも<br>
+                        結合を実行して、結合先がいない場合、右表の列に相当する列にはnullを格納する。
+                        <u style="color: red;">このような結合を外部結合といいます。</u>
+                    </p>
+                </div>
+
+                <p style="margin-top: 120px;">そのほかにも右外部結合があります。<br>そして実際にRIGHT JOINを行うとこのような動作になります。</p>
+                <iframe
+                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=seti&wt=none&l=sql&width=320&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=SELECT%2520*%2520FROM%2520training%2520%250ARIGHT%2520JOIN%2520subject%2520%250AON%2520training.%2522%25E7%25A7%2591%25E7%259B%25AEID%2522%2520%253D%2520subject.%2522%25E7%25A7%2591%25E7%259B%25AEid%2522%253B"
+                    style="width: 409px; height: 148px; border:0; transform: scale(1); overflow:hidden;"
+                    sandbox="allow-scripts allow-same-origin">
+                </iframe><br>
+
+                <img src="join_img/join_right.png" alt="" style="margin-top: 20px; width: 50%; min-width:590px;">
+
+                <div class="grid" style="margin-top:20px; ">
+                    <h4 style="color: yellow;">RIGHT JOIN句の特性(右外部結合)</h4>
+                    <p>JOIN句で指定した右テーブルを全行出力する。
+                        <u style="color: red;">このような結合を外部結合といいます。</u>
+                    </p>
+                </div>
+
+
+                <p style="margin-top: 120px;">そして外部結合には他にも、FULL JOINというものがあります。</p>
+                <iframe
+                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=seti&wt=none&l=sql&width=320&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=SELECT%2520%25E9%2581%25B8%25E6%258A%259E%25E5%2588%2597%2520FROM%2520%25E3%2583%2586%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25ABA%250AFULL%2520JOIN%2520%25E3%2583%2586%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25ABB%250A%2509ON%2520%25E4%25B8%25A1%25E3%2583%2586%25E3%2583%25BC%25E3%2583%2596%25E3%2583%25AB%25E3%2581%25AE%25E7%25B5%2590%25E5%2590%2588%25E6%259D%25A1%25E4%25BB%25B6"
                     style="width: 409px; height: 148px; border:0; transform: scale(1); overflow:hidden;"
                     sandbox="allow-scripts allow-same-origin">
                 </iframe>
+                <div class="grid" style="margin-top:0px; ">
+                    <h4 style="color: yellow;">FULL JOIN句の特性(完全外部結合)</h4>
+                    <p>左右テーブルを全行出力する。
+                        <u style="color: red;">このような結合を外部結合といいます。</u>
+                    </p>
+                </div>
 
-
-
-
-
-
-                <h5 style="margin-top: 90px; margin-bottom: 10px;">実装</h5>
-                <p>まず手順1の、いくつか選ぶ方法を2進数で表します。つまり選んだ場合は"1"、選ばない場合を"0"として2進数を10進数に変換します。</p>
-                <img src="bit_img/nisin2.png" style="margin-top: 20px; width: 60%; min-width:290px;">
-                <p style="margin-top: 20px;">そして、その2進数を10進数に変換します。</p>
-                <img src="bit_img/jyuu.png" style="margin-top: 20px; width: 60%; min-width:290px;">
-                <p style="margin-top: 30px;">
-                    この時に全てを選んだ時の2進数"111"の10進数が7になっていることに注目します。0~7の8個、つまり0から2^3-1の範囲をforの条件式に指定することができるようになります。
-                    そうすることで全てのパターンを列挙できます。<br>forの条件式をc++で記述していきます。</p>
-                <iframe
-                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=seti&wt=none&l=text%2Fx-c%2B%2Bsrc&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=true&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=int%2520main%28%29%2520%257B%250A%2520%2520%2520%2520for%28int%2520bit%2520%253D%25200%253B%2520bit%2520%253C%2520%281%2520%253C%253C%25203%29%253B%2520bit%252B%252B%29%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%252F%252F%2520code%250A%2520%2520%2520%2520%257D%250A%257D"
-                    style="width: 100%; height: 177px; border:0; transform: scale(1); overflow:hidden;"
-                    sandbox="allow-scripts allow-same-origin">
-                </iframe>
-                <p>コード内のint型bitは10進数を表しており条件式の"1&lt;&lt;3"は2進数の1をいくつかを、選ぶ対象である。1~3の要素数3つ分右ビットシフトしています。</p>
-                <p style=" margin-bottom: 20px; margin-top: 20px;"><a href="https://algo-method.com/descriptions/29"
-                        style=" color: yellow;" target="_blank">"&lt;&lt;の"シフト演算子についてわからない方は参照してください。</p></a>
-                <p>for文の条件式内で"bit &lt; (1 &lt;&lt;
-                    3);"とする理由は、ビット1を要素数3つ分左シフトすると2進数は"1000"になります。これを10進数で表すと8に変換され条件式が10進数を
-                    表すint型変数bitが0&lt;8の7回回るので全てのパターンが列挙できます。</p>
-                <p style="margin-top: 20px;">ここまでを整理すると、2進数で1と0を使うか使わないかのフラグのような役割をさせ、"bit &lt; (1 &lt;&lt;
-                    3);つまり0&lt;8回ループ処理をさせるということになります。</p>
-                <!-- 上のここまでの整理をもっとわかりやすく記述する -->
-
-
-
-                <p style="margin-top: 90px;">そして手順2のif文で10進数から2進数に変換し、各桁に1が立っているか判定します。</p>
-                <iframe
-                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=seti&wt=none&l=text%2Fx-c%2B%2Bsrc&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=true&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%252F%252F%2520bit%25E3%2581%25AEi%25E6%25A1%2581%25E7%259B%25AE%28i%25E7%2595%25AA%25E7%259B%25AE%25E3%2581%25AE%25E3%2582%2582%25E3%2581%25AE%29%25E3%2581%25AF1%28%25E9%2581%25B8%25E3%2582%2593%25E3%2581%25A0%29%25E3%2581%258B%25E3%2581%25A9%25E3%2581%2586%25E3%2581%258B%250Aif%2520%28%28bit%2520%253E%253E%2520i%29%2520%2526%25201%29%2520%257B%250A%2520%2520%2520%2520%252F*1%25E3%2581%258C%25E7%25AB%258B%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%2584%25E3%2581%259F%25E6%2599%2582%25E3%2581%25AE%25E5%2587%25A6%25E7%2590%2586*%252F%250A%257D"
-                    style="width: 100%; height: 191px; border:0; transform: scale(1); overflow:hidden; margin-top: 20px; "
-                    sandbox="allow-scripts allow-same-origin">
-                </iframe>
-                <p>例えば、数値{1,2,3}　要素数3つ、bit=2の時、if((bit>>i)&1)の処理がどういう動きになるか考えていきます。</p>
-                <p>bit=2の時、2進数で表すと010になります。つまり数値{1,2,3}のうち1が立っている2が選ばれている状態であり、この時変数iが表すのは桁数なのでiは0~2の3回for処理が回ります。そして下記画像のi=1の時にif文が
-                    実行されます。(if文は条件が1の時はTrue、0の時はfalseになるので、&演算子の演算結果で処理を分岐させられるため。)
+                <h5 style="margin-top: 90px;">まとめ</h5>
+                <p>結合すべき行が見つからない時に行が消滅してしまうのが<span style="color: yellow;">内部結合(inner join)</span><br>
+                    本来消滅してしまう行を強制的に出力させるものが<span style="color: yellow;">外部結合(outer join)</span>
                 </p>
-                <img src="bit_img/ifans.png" alt="" style="margin-top: 20px; width: 60%; min-width:290px;">
-                <iframe
-                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=seti&wt=none&l=text%2Fx-c%2B%2Bsrc&width=447&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=for%2520%28int%2520i%2520%253D%25200%253B%2520i%2520%253C%2520N%253B%2520i%252B%252B%29%2520%257B%250A%2520%2520%2509%252F*%2520%25E5%25A4%2589%25E6%2595%25B0i%25E3%2581%25AF%25E4%25B8%258E%25E3%2581%2588%25E3%2582%2589%25E3%2582%258C%25E3%2581%259F%25E6%2595%25B4%25E6%2595%25B0%25E3%2581%25AE%25E5%2580%258B%25E6%2595%25B0%25E3%2582%2592%25E8%25A1%25A8%25E3%2581%2599%2520*%252F%250A%2520%2520%2520%2520if%2520%28%28bit%2520%253E%253E%2520i%29%2520%2526%25201%29%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%252F*%2520%25E3%2581%2593%25E3%2581%2593%25E3%2581%25AEif%25E6%2596%2587%25E3%2581%25A7%25E4%25B8%258E%25E3%2581%2588%25E3%2582%2589%25E3%2582%258C%25E3%2581%259F%25E5%2580%258B%25E6%2595%25B0%25E5%2588%2586%25E3%2581%25AE%25E6%2595%25B4%25E6%2595%25B0%25E3%2581%258C%25E5%2590%2584%25E3%2580%2585%25E9%2581%25B8%25E3%2581%25B0%25E3%2582%258C%25E3%2581%25A6%25E3%2582%258B%25E3%2581%25AE%25E3%2581%258B%25E9%2581%25B8%25E3%2581%25B0%25E3%2582%258C%25E3%2581%25A6%25E3%2581%25AA%25E3%2581%2584%25E3%2581%25AE%25E3%2581%258B%25E5%2588%25A4%25E5%25AE%259A%2520*%252F%250A%2520%2520%2520%2520%257D%250A%257D%250A"
-                    style="width: 100%; height: 206px; border:0; transform: scale(1); overflow:hidden; margin-top: 20px;"
-                    sandbox="allow-scripts allow-same-origin">
-                </iframe>
-
-                <h5 style="margin-top: 110px;">例題</h5>
-                <iframe
-                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=seti&wt=none&l=auto&width=447&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=A1%252CA2%252C%25E3%2583%25BB%25E3%2583%25BB%25E3%2583%25BBAN%25E3%2581%25AEN%25E5%2580%258B%25E3%2581%25AE%25E6%2595%25B4%25E6%2595%25B0%25E3%2581%258C%25E4%25B8%258E%25E3%2581%2588%25E3%2582%2589%25E3%2582%258C%25E3%2581%25BE%25E3%2581%2599%25E3%2580%2582%2520%25E3%2581%2593%25E3%2582%258C%25E3%2582%2589%25E3%2581%25AE%25E6%2595%25B4%25E6%2595%25B0%25E3%2581%258B%25E3%2582%2589%25E3%2581%2584%25E3%2581%258F%25E3%2581%25A4%25E3%2581%258B%25E3%2582%2592%25E9%2581%25B8%25E3%2582%2593%25E3%2581%25A7%25E3%2580%2581%25E3%2581%259D%25E3%2581%25AE%25E7%25B7%258F%25E5%2592%258C%25E3%2581%258CK%25E3%2581%25A8%25E3%2581%25AA%25E3%2582%258B%25E3%2582%2588%25E3%2581%2586%25E3%2581%25AA%25E9%2581%25B8%25E3%2581%25B3%25E6%2596%25B9%25E3%2581%258C%25E5%25AD%2598%25E5%259C%25A8%25E3%2581%2599%25E3%2582%258B%25E3%2581%258B%25E3%2582%2592%25E6%25B1%2582%25E3%2582%2581%25E3%2581%25A6%25E3%2581%258F%25E3%2581%25A0%25E3%2581%2595%25E3%2581%2584%25E3%2580%2582"
-                    style="width: 100%; height: 206px; border:0; transform: scale(1); overflow:hidden;"
-                    sandbox="allow-scripts allow-same-origin">
-                </iframe>
-                <h5 style="margin-top: 40px;">解答</h5>
-                <iframe
-                    src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=seti&wt=none&l=text%2Fx-c%2B%2Bsrc&width=531&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%2523include%2520%253Cbits%252Fstdc%252B%252B.h%253E%250Ausing%2520namespace%2520std%253B%250A%250Aint%2520main%28%29%2520%257B%250A%2520%2520%2520%2520int%2520n%252Ck%253B%2520cin%2520%253E%253E%2520n%253E%253Ek%253B%250A%2520%2520%2520%2520vector%253Cint%253E%2520a%28n%29%253B%250A%2520%2520%2520%2520for%28int%2520i%2520%253D%25200%253B%2520i%2520%253C%2520n%253B%2520i%252B%252B%29%2520cin%2520%253E%253E%2520a.at%28i%29%253B%250A%2520%2520%2520%2520bool%2520flag%2520%253D%2520false%253B%250A%250A%2520%2520%2520%2520%252F%252F%25E3%2580%2580%25E5%2585%25A8%25E3%2581%25A6%25E3%2581%25AE%25E9%2581%25B8%25E3%2581%25B3%25E6%2596%25B9%25E3%2582%2592%25E8%25A9%25A6%25E3%2581%2597%25E3%2580%2581%25E7%25B7%258F%25E5%2592%258C%25E3%2581%258Ck%25E3%2581%25A7%25E3%2581%2582%25E3%2582%258B%25E3%2582%2582%25E3%2581%25AE%25E3%2581%258C%25E5%25AD%2598%25E5%259C%25A8%25E3%2581%2599%25E3%2582%258B%25E3%2581%258B%25E8%25AA%25BF%25E3%2581%25B9%25E3%2582%258B%250A%2520%2520%2520%2520for%28int%2520bit%2520%253D%25200%253B%2520bit%2520%253C%2520%281%253C%253Cn%29%253B%2520bit%252B%252B%29%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520int%2520sum%2520%253D%25200%253B%250A%250A%2520%2520%2520%2520%2520%2520%2520%2520%252F%252F%2520%25E5%2590%2584%25E6%25A1%2581%25E3%2581%25AB2%25E9%2580%25B2%25E6%2595%25B0%25E3%2581%25A71%25E3%2581%258C%25E7%25AB%258B%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%2584%25E3%2582%258B%25E3%2581%258B%25E5%2588%25A4%25E5%25AE%259A%250A%2520%2520%2520%2520%2520%2520%2520%2520for%28int%2520i%2520%253D%25200%253B%2520i%2520%253C%2520n%253B%2520i%252B%252B%29%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520if%2520%28%28bit%2520%253E%253E%2520i%29%25261%29%2520sum%2520%252B%253D%2520a.at%28i%29%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520if%28sum%2520%253D%253D%2520k%29%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520flag%2520%253D%2520true%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520break%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%257D%250A%250A%2520%2520%2520%2520if%28flag%29%2520cout%2520%253C%253C%2520%2522Yes%2522%2520%253C%253C%2520endl%253B%250A%2520%2520%2520%2520else%2520cout%2520%253C%253C%2520%2522No%2522%2520%253C%253C%2520endl%253B%250A%257D"
-                    style="width: 100%; height: 705px; border:0; transform: scale(1); overflow:hidden;"
-                    sandbox="allow-scripts allow-same-origin">
-                </iframe>
-
-
 
             </div>
         </div>
-
     </div>
+
 
     <!-- contact section -->
     <div class="contact">
